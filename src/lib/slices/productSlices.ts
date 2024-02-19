@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ProductResponse } from "../types/types";
 
-const initialState: ProductResponse[] = [];
+const initialState = [] as ProductResponse[];
 
 const productSlice = createSlice({
   name: "posts",
@@ -13,7 +13,7 @@ const productSlice = createSlice({
     },
     deleteProduct: (state, action: PayloadAction<any>) => {
       const postId = action.payload;
-      return state.filter((item) => item.id === postId);
+      return state.filter((item) => item.id !== postId);
     }
   }
 });
