@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className='p-3 mx-auto grid grid-cols-3 w-full max-w-md mb-3 sticky top-0 h-16 shadow-[0_0_10px_rgba(0,0,0,0.3)]'>
+    <header className='p-3 mx-auto grid grid-cols-3 w-full max-w-md mb-3 sticky z-50 top-0 h-16 shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-white'>
       <HeaderDisplay />
     </header>
   );

@@ -8,8 +8,8 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<ProductResponse>) => {
-      const { id, title, price, description, category, image, rating } = action.payload;
-      state.push({ id, title, price, description, category, image, rating });
+      const { id, title, price, description, category, image, weight } = action.payload;
+      state.push({ id, title, price, description, category, image, weight });
     },
     deleteProduct: (state, action: PayloadAction<any>) => {
       const postId = action.payload;

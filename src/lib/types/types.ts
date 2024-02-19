@@ -1,8 +1,3 @@
-interface Rating {
-  rate?: number,
-  count?: number;
-}
-
 export interface ProductResponse {
   id: number,
   title: string,
@@ -10,7 +5,7 @@ export interface ProductResponse {
   description: string,
   category: string,
   image: string,
-  rating?: Rating;
+  weight?: number;
 }
 
 export interface State {
