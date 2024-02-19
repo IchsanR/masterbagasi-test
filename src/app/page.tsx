@@ -1,4 +1,5 @@
 "use client";
+import ProductDisplay from "@/components/ProductDisplay";
 import { useSelector } from "react-redux";
 
 export default function Home() {
@@ -7,9 +8,7 @@ export default function Home() {
   switch (pageViews) {
     case "home":
       return (
-        <main className="">
-          home
-        </main>
+        <ProductDisplay />
       );
     case "bag":
       return (

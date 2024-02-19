@@ -12,3 +12,7 @@ export interface ProductResponse {
   image: string,
   rating?: Rating;
 }
+
+export interface State {
+  pageViews: string;
+}

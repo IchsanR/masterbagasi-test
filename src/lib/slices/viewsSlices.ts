@@ -1,15 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 import { setViews } from "../action/viewsAction";
+import { State } from "../types/types";
 
 const initialState = {
-  pageViews: ""
-};
+  pageViews: "home"
+} as State;
 
 const viewSlices = createSlice({
   name: "views",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>): void => {
     builder.addCase(setViews, (state, action) => {
       return {
         ...state,
