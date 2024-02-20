@@ -10,14 +10,12 @@ import { setViews } from '@/lib/action/viewsAction';
 const Navbar: NextPage = () => {
   const dispatch = useDispatch();
   const pageViews = useSelector((state: any) => state.pages.pageViews);
-  const product = useSelector((state: any) => state.product);
+  const product = useSelector((state: any) => state.product.products);
 
   const totalHargaProduct = product.reduce((acc: number, item: any, index: number) => {
     if (index === 0) {
-      // Jika ini adalah item pertama, maka total awal adalah harga produk ini
       return item.totalPrice;
     } else {
-      // Jika ini bukan item pertama, maka total adalah total sebelumnya ditambah harga produk ini
       return acc + item.totalPrice;
     }
   }, 0);

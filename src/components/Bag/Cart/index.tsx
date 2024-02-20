@@ -7,7 +7,7 @@ import { deleteProduct, updateQuantity } from "@/lib/slices/productSlices";
 import Image from "next/image";
 
 const Cart = () => {
-  const product = useSelector((state: any) => state.product);
+  const product = useSelector((state: any) => state.product.products);
   const dispatch = useDispatch();
 
   const handleDecrease = (productId: number) => {

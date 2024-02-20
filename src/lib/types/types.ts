@@ -13,3 +13,13 @@ export interface ProductResponse {
 export interface State {
   pageViews: string;
 }
+
+export interface ProductWarehouse {
+  id: number,
+  title: string,
+  price: number,
+  weight: number,
+  quantity: number,
+  totalWeight?: number,
+  totalPrice?: number;
+}
