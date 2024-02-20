@@ -31,7 +31,7 @@ const Bag = () => {
   };
 
   return (
-    <section className="w-full max-w-md">
+    <section className="w-full max-w-md pb-52">
       <SectionButton />
       <Views />
     </section>

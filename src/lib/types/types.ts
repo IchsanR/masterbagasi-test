@@ -7,6 +7,7 @@ export interface ProductResponse {
   image: string,
   weight?: number;
   quantity: number;
+  totalPrice?: number;
 }
 
 export interface State {

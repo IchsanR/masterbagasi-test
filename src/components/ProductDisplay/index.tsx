@@ -10,7 +10,7 @@ const ProductDisplay = () => {
   const dispatch = useDispatch();
 
   const handleBuy = (
-    { e, id, title, price, description, category, image, weight, quantity }:
+    { e, id, title, price, description, category, image, weight, quantity, totalPrice }:
       {
         e: React.MouseEvent<HTMLButtonElement>, id: number,
         title: string,
@@ -20,11 +20,12 @@ const ProductDisplay = () => {
         image: string,
         weight?: number,
         quantity: number;
+        totalPrice?: number;
       }) => {
     e.preventDefault();
 
     const boughtProduct = {
-      id, title, price, description, category, image, weight, quantity
+      id, title, price, description, category, image, weight, quantity, totalPrice
     };
 
     dispatch(addProduct(boughtProduct));
@@ -45,10 +46,10 @@ const ProductDisplay = () => {
                 </Typography>
                 <div className='flex justify-between'>
                   <Typography variant="subtitle1" color="text.secondary" component="div">
-                    {`$ ${item.price}`}
+                    {`Rp. ${item.price.toLocaleString('id-ID')}`}
                   </Typography>
                   <Button variant="outlined" size="small" color="error" type='button' onClick={(e) => handleBuy({
-                    e, id: item.id, title: item.title, price: item.price, description: item.description, category: item.category, image: item.image, weight: item.weight, quantity: item.quantity
+                    e, id: item.id, title: item.title, price: item.price, description: item.description, category: item.category, image: item.image, weight: item.weight, quantity: item.quantity, totalPrice: item.quantity * item.price
                   })}>
                     Buy
                   </Button>

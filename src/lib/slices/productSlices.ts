@@ -18,6 +18,7 @@ const productSlice = createSlice({
 
       if (existingProduct) {
         existingProduct.quantity += quantity;
+        existingProduct.totalPrice = existingProduct.quantity * existingProduct.price;
       } else {
         state.push({ id, quantity, ...rest });
       }
@@ -34,6 +35,7 @@ const productSlice = createSlice({
       const productToUpdate = state.find(product => product.id === productId);
       if (productToUpdate) {
         productToUpdate.quantity += quantity;
+        productToUpdate.totalPrice = productToUpdate.quantity * productToUpdate.price;
       }
     }
   }
