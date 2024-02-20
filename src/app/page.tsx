@@ -1,4 +1,5 @@
 "use client";
+import Bag from "@/components/Bag";
 import ProductDisplay from "@/components/ProductDisplay";
 import { useSelector } from "react-redux";
 
@@ -12,9 +13,7 @@ export default function Home() {
       );
     case "bag":
       return (
-        <main className="">
-          bag
-        </main>
+        <Bag />
       );
   }
 

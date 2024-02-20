@@ -1,16 +1,16 @@
 import React from 'react';
 import dataDummy from '../../../dummy';
-import { Box, Button, Card, CardContent, Typography } from '@mui/material';
+import { Button, Card, CardContent, Typography } from '@mui/material';
 import Image from 'next/image';
 import { addProduct } from '@/lib/slices/productSlices';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const ProductDisplay = () => {
   const productData = dataDummy;
   const dispatch = useDispatch();
 
   const handleBuy = (
-    { e, id, title, price, description, category, image, weight }:
+    { e, id, title, price, description, category, image, weight, quantity }:
       {
         e: React.MouseEvent<HTMLButtonElement>, id: number,
         title: string,
@@ -18,12 +18,13 @@ const ProductDisplay = () => {
         description: string,
         category: string,
         image: string,
-        weight?: number;
+        weight?: number,
+        quantity: number;
       }) => {
     e.preventDefault();
 
     const boughtProduct = {
-      id, title, price, description, category, image, weight
+      id, title, price, description, category, image, weight, quantity
     };
 
     dispatch(addProduct(boughtProduct));
@@ -47,7 +48,7 @@ const ProductDisplay = () => {
                     {`$ ${item.price}`}
                   </Typography>
                   <Button variant="outlined" size="small" color="error" type='button' onClick={(e) => handleBuy({
-                    e, id: item.id, title: item.title, price: item.price, description: item.description, category: item.category, image: item.image, weight: item.weight
+                    e, id: item.id, title: item.title, price: item.price, description: item.description, category: item.category, image: item.image, weight: item.weight, quantity: item.quantity
                   })}>
                     Buy
                   </Button>
@@ -62,7 +63,7 @@ const ProductDisplay = () => {
 
 
   return (
-    <section className='w-full max-w-md p-5 no-scrollbar'>
+    <section className='w-full max-w-md p-5'>
       <h1 className='font-bold text-5xl'>Product</h1>
       <ProductCard />
     </section>

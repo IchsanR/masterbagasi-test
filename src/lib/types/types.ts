@@ -6,6 +6,7 @@ export interface ProductResponse {
   category: string,
   image: string,
   weight?: number;
+  quantity: number;
 }
 
 export interface State {
