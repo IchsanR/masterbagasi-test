@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "@nextui-org/react";
 import { setViews } from '@/lib/action/viewsAction';
 import { ProductWarehouse } from '@/lib/types/types';
+import { deleteWarehouseItem } from '@/lib/slices/productSlices';
 
 const Warehouse = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,12 @@ const Warehouse = () => {
     e.preventDefault();
     const value = e.currentTarget.value;
     dispatch(setViews(value));
+  };
+
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    e.preventDefault();
+
+    dispatch(deleteWarehouseItem(id));
   };
 
   const WarehouseItems = () => {
@@ -39,6 +46,9 @@ const Warehouse = () => {
                 <h1>Jumlah Barang</h1>
                 <p className='font-semibold'>{item.quantity} pcs</p>
               </div>
+            </div>
+            <div className='flex flex-row-reverse my-4'>
+              <Button color='danger' onClick={(e) => handleDelete(e, item.id)}>Delete</Button>
             </div>
           </div>
         ))}
