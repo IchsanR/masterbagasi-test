@@ -47,7 +47,7 @@ const productSlice = createSlice({
     },
     deleteWarehouseItem: (state, action: PayloadAction<any>) => {
       const postId = action.payload;
-      state.products = state.products.filter((item) => item.id !== postId);
+      state.warehouse = state.warehouse.filter((item) => item.id !== postId);
     }
   }
 });
