@@ -35,7 +35,7 @@ const AddWarehouse = () => {
       weight: form.weight,
       quantity: form.quantity,
       totalWeight: form.weight * form.quantity,
-      totalPrice: form.price * form.weight * form.quantity
+      totalPrice: form.price * form.quantity
     };
 
     dispatch(addWarehouse(data));
@@ -67,7 +67,7 @@ const AddWarehouse = () => {
     setForm({ ...form, weight: weight });
     if (!isNaN(form.price) && !isNaN(weight) && !isNaN(form.quantity)) {
       setTotalWeight(weight * form.quantity);
-      setTotalPrice(form.price * weight * form.quantity);
+      setTotalPrice(form.price * form.quantity);
     } else {
       setTotalWeight(0);
       setTotalPrice(0);
@@ -79,7 +79,7 @@ const AddWarehouse = () => {
     setForm({ ...form, quantity: quantity });
     if (!isNaN(form.price) && !isNaN(form.weight) && !isNaN(quantity)) {
       setTotalWeight(form.weight * quantity);
-      setTotalPrice(form.price * form.weight * quantity);
+      setTotalPrice(form.price * quantity);
     } else {
       setTotalWeight(0);
       setTotalPrice(0);
