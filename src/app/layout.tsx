@@ -20,13 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-slate-500`}>
-        <Providers>
-          <main className="my-0 mx-auto min-h-screen max-w-md bg-white">
+        <main className="my-0 mx-auto min-h-screen max-w-md bg-white">
+          <Providers>
             <Header />
             {children}
             <Navbar />
-          </main>
-        </Providers>
+          </Providers>
+        </main>
       </body>
     </html>
   );
