@@ -35,7 +35,7 @@ const Cart = () => {
         {product.length > 0 ? product.map((item: any, index: number) => (
           <Box className="p-3 border flex" key={index}>
             <Box className="flex w-full">
-              <Box className="mr-3 relative w-20 h-20 overflow-hidden">
+              <Box className="mr-3 relative w-20 h-20">
                 <Image src={item.image} fill alt={item.title} className="object-contain" />
               </Box>
               <Box className="w-full">

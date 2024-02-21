@@ -63,7 +63,7 @@ const AddWarehouse = () => {
   };
 
   const handleWeight = (e: any) => {
-    const weight = parseInt(e.target.value);
+    const weight = parseFloat(e.target.value);
     setForm({ ...form, weight: weight });
     if (!isNaN(form.price) && !isNaN(weight) && !isNaN(form.quantity)) {
       setTotalWeight(weight * form.quantity);
@@ -85,9 +85,6 @@ const AddWarehouse = () => {
       setTotalPrice(0);
     }
   };
-
-
-  console.log(totalWeight);
 
   return (
     <div className='w-full p-5'>
@@ -139,7 +136,7 @@ const AddWarehouse = () => {
           </div>
           <div className='flex justify-between'>
             <h3>Total Harga Barang</h3>
-            <p className='font-bold'>Rp. {totalPrice}</p>
+            <p className='font-bold'>Rp. {totalPrice.toLocaleString('id-ID')}</p>
           </div>
         </div>
         <div className='w-full mt-5 flex flex-row-reverse'>

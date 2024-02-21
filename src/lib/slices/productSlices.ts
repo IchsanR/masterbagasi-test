@@ -44,9 +44,13 @@ const productSlice = createSlice({
     addWarehouse: (state, action: PayloadAction<ProductWarehouse>) => {
       const { id, quantity, ...rest } = action.payload;
       state.warehouse.push({ id, quantity, ...rest });
+    },
+    deleteWarehouseItem: (state, action: PayloadAction<any>) => {
+      const postId = action.payload;
+      state.products = state.products.filter((item) => item.id !== postId);
     }
   }
 });
 
-export const { addProduct, deleteProduct, deleteAll, updateQuantity, addWarehouse } = productSlice.actions;
+export const { addProduct, deleteProduct, deleteAll, updateQuantity, addWarehouse, deleteWarehouseItem } = productSlice.actions;
 export default productSlice.reducer;

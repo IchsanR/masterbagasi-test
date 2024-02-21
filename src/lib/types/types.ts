@@ -20,6 +20,6 @@ export interface ProductWarehouse {
   price: number,
   weight: number,
   quantity: number,
-  totalWeight?: number,
-  totalPrice?: number;
+  totalWeight: number,
+  totalPrice: number;
 }

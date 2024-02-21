@@ -11,6 +11,7 @@ const Navbar: NextPage = () => {
   const dispatch = useDispatch();
   const pageViews = useSelector((state: any) => state.pages.pageViews);
   const product = useSelector((state: any) => state.product.products);
+  const warehouse = useSelector((state: any) => state.product.warehouse);
 
   const totalHargaProduct = product.reduce((acc: number, item: any, index: number) => {
     if (index === 0) {
@@ -20,7 +21,15 @@ const Navbar: NextPage = () => {
     }
   }, 0);
 
+  const totalHargaWarehouse = warehouse.reduce((acc: number, item: any, index: number) => {
+    if (index === 0) {
+      return item.totalPrice;
+    } else {
+      return acc + item.totalPrice;
+    }
+  }, 0);
 
+  const totalSemua = totalHargaWarehouse + totalHargaProduct;
   const handlePage = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
@@ -52,11 +61,11 @@ const Navbar: NextPage = () => {
           </div>
           <div className='flex justify-between'>
             <p>Total Harga Warehouse</p>
-            <p>Test</p>
+            <p className='font-bold'>{`Rp. ${totalHargaWarehouse.toLocaleString('id-ID')}`}</p>
           </div>
           <div className='flex justify-between mb-6'>
             <p>Total Harga Belanja</p>
-            <p>Test</p>
+            <p className='font-bold'>{`Rp. ${totalSemua.toLocaleString('id-ID')}`}</p>
           </div>
           <button className={product.length === 0 ? 'text-center w-full py-3 rounded-full bg-slate-500 text-slate-400 font-bold' : 'text-center w-full py-3 rounded-full bg-red-600 text-white font-bold'} disabled={product.length === 0}>
             CHECKOUT
