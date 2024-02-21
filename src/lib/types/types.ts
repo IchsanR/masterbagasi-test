@@ -1,8 +1,3 @@
-interface Rating {
-  rate?: number,
-  count?: number;
-}
-
 export interface ProductResponse {
   id: number,
   title: string,
@@ -10,5 +5,21 @@ export interface ProductResponse {
   description: string,
   category: string,
   image: string,
-  rating?: Rating;
+  weight?: number;
+  quantity: number;
+  totalPrice?: number;
+}
+
+export interface State {
+  pageViews: string;
+}
+
+export interface ProductWarehouse {
+  id: number,
+  title: string,
+  price: number,
+  weight: number,
+  quantity: number,
+  totalWeight: number,
+  totalPrice: number;
 }
