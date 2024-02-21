@@ -17,11 +17,11 @@ const Header = () => {
   const HeaderDisplay = () => {
     return (
       <>
-        <button className='m-auto' value="home" onClick={(e) => handleBack(e)} type='button'>
+        <button className='m-auto' value={pageViews === "addWarehouse" ? "bag" : "home"} onClick={(e) => handleBack(e)} type='button'>
           {pageViews === "home" ? <></> : <ArrowBackIosRoundedIcon />}
         </button>
-        <h1 className='m-auto font-bold grid-cols-2'>
-          {pageViews === "bag" || pageViews === "inventory" ? "BAG" : "HOME"}
+        <h1 className='m-auto font-bold grid-cols-3'>
+          {pageViews === "bag" || pageViews === "inventory" ? "BAG" : pageViews === "addWarehouse" ? "WAREHOUSE" : "HOME"}
         </h1>
       </>
     );

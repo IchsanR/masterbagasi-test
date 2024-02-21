@@ -22,13 +22,14 @@ const Navbar: NextPage = () => {
 
 
   const handlePage = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const value = e.currentTarget.value;
     dispatch(setViews(value));
   };
 
   const HomeNav = () => {
     return (
-      <>
+      <nav className='mx-auto w-full max-w-sm mb-3 fixed bottom-0 left-1/2 -translate-x-1/2 h-16 flex rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-[#FFF]'>
         <button className='m-auto' type='button' value="home" onClick={(e) => handlePage(e)}>
           <Image src={homeActive} className='m-auto' height={35} width={35} alt='Bag' />
           <h5 className={"text-red-600"}>Home</h5>
@@ -37,41 +38,40 @@ const Navbar: NextPage = () => {
           <Image src={bag} className='m-auto' height={30} width={29} alt='Bag' />
           <h5 className={"text-black"}>Bag</h5>
         </button>
-      </>
+      </nav>
     );
   };
 
   const CheckoutButton = () => {
     return (
-      <div className='w-full m-auto p-5'>
-        <div className='flex justify-between'>
-          <p>Total Harga Keranjang</p>
-          <p className='font-bold'>{`Rp. ${totalHargaProduct.toLocaleString('id-ID')}`}</p>
+      <nav className='mx-auto w-full max-w-sm mb-3 fixed bottom-0 left-1/2 -translate-x-1/2 flex rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-[#FFF]'>
+        <div className='w-full m-auto p-5'>
+          <div className='flex justify-between'>
+            <p>Total Harga Keranjang</p>
+            <p className='font-bold'>{`Rp. ${totalHargaProduct.toLocaleString('id-ID')}`}</p>
+          </div>
+          <div className='flex justify-between'>
+            <p>Total Harga Warehouse</p>
+            <p>Test</p>
+          </div>
+          <div className='flex justify-between mb-6'>
+            <p>Total Harga Belanja</p>
+            <p>Test</p>
+          </div>
+          <button className={product.length === 0 ? 'text-center w-full py-3 rounded-full bg-slate-500 text-slate-400 font-bold' : 'text-center w-full py-3 rounded-full bg-red-600 text-white font-bold'} disabled={product.length === 0}>
+            CHECKOUT
+          </button>
         </div>
-        <div className='flex justify-between'>
-          <p>Total Harga Warehouse</p>
-          <p>Test</p>
-        </div>
-        <div className='flex justify-between mb-6'>
-          <p>Total Harga Belanja</p>
-          <p>Test</p>
-        </div>
-        <button className={product.length === 0 ? 'text-center w-full py-3 rounded-full bg-slate-500 text-slate-400 font-bold' : 'text-center w-full py-3 rounded-full bg-red-600 text-white font-bold'} disabled={product.length === 0}>
-          CHECKOUT
-        </button>
-      </div>
+      </nav>
     );
   };
 
   return (
-    <nav className={pageViews === 'home' ? 'mx-auto w-full max-w-sm mb-3 fixed bottom-0 left-1/2 -translate-x-1/2 h-16 flex rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-[#FFF]'
-      : 'mx-auto w-full max-w-sm mb-3 fixed bottom-0 left-1/2 -translate-x-1/2 flex rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-[#FFF]'}>
-      {pageViews === 'home' ? (
-        <HomeNav />
-      ) : (
-        <CheckoutButton />
-      )}
-    </nav>
+    pageViews === "home" ? (
+      <HomeNav />
+    ) : pageViews === "bag" ? (
+      <CheckoutButton />
+    ) : <></>
   );
 };
 

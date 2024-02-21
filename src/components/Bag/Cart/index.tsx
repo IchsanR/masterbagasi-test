@@ -55,7 +55,7 @@ const Cart = () => {
               </Box>
             </Box>
           </Box>
-        )) : null}
+        )) : (<NoProduct />)}
       </div>
     );
   };
@@ -63,9 +63,7 @@ const Cart = () => {
 
   return (
     <section>
-      {product.length === 0 ? (<NoProduct />) : (
-        <Children />
-      )}
+      <Children />
     </section>
   );
 };

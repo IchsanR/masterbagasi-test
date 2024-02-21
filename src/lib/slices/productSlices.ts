@@ -40,9 +40,13 @@ const productSlice = createSlice({
         productToUpdate.quantity += quantity;
         productToUpdate.totalPrice = productToUpdate.quantity * productToUpdate.price;
       }
+    },
+    addWarehouse: (state, action: PayloadAction<ProductWarehouse>) => {
+      const { id, quantity, ...rest } = action.payload;
+      state.warehouse.push({ id, quantity, ...rest });
     }
   }
 });
 
-export const { addProduct, deleteProduct, deleteAll, updateQuantity } = productSlice.actions;
+export const { addProduct, deleteProduct, deleteAll, updateQuantity, addWarehouse } = productSlice.actions;
 export default productSlice.reducer;
